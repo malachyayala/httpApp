@@ -75,14 +75,10 @@ WSGI_APPLICATION = 'crudApp.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'my_db',
-        'USER': 'root',
-        'PASSWORD': '@p4ncake!',
-        'HOST':'localhost',
-        'PORT':'3306',
-    }
+	'default': {
+    	'ENGINE': 'django.db.backends.sqlite3',
+    	'NAME': BASE_DIR / 'db.sqlite3',
+	}
 }
 
 
