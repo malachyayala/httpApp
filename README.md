@@ -71,6 +71,6 @@ For deleting a user, I assumed the input would be a Json object with just one fi
 Overall the hardest part of the project was implementing a way to update a team member. For my update implementation, I assumed we at least were given the primary as a means to identify which item is being edited. However, that is the only required field. All others are optional.
 
 <h2> Areas to improve: </h2>
-- Implement more accurate field types in my teamMember model
-- Implement try/catches to catch more exceptions
+- Implement more accurate field types in my teamMember model<br />
+- Implement try/catches to catch more exceptions<br />
 - Learn django testing unit to test accuracy and edge cases
