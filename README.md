@@ -15,3 +15,16 @@ Once in the httpApp/ directory, run the following command in your terminal: 'pyt
 
 For testing:
 
+brew install mysql
+brew install openssl
+export PATH=${PATH}:/usr/local/mysql/bin/
+sudo xcode-select --reset
+pip3 install mysqlclient
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+mysql -u root -p
+
+SHOW DATABASES;
+CREATE DATABASE my_db;
