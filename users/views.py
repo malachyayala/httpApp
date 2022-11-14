@@ -8,8 +8,9 @@ from django.core import serializers
 
 def addUser(request):
     """
+    :param request: Json data that gets given to the function which has all the data to create a new user
     Adds a user to the SQL model database and saves it.
-    Return: None
+    :returns: None
     """
     data = json.loads(request.body)
     u = teamMember(
@@ -23,15 +24,18 @@ def addUser(request):
 
 def deleteUsers(request, userID):
     """
+    :param request: Json data that gets given to the function which has just a primary key/unique ID.
+    :param userID: ID for user which is getting deleted.
     Deletes an existing user from the SQL model database.
-    Return: None
+    :returns: None
     """
     teamMember.objects.filter(pk = userID.get("userId")).delete()
 
 def updateUsers(request):
     '''
+    :param request: Json data that gets passed to the function, containing at least a primary key/unique ID.
     Updates an existing user in the current SQL model database.
-    Return: None
+    :returns: None
     '''
     userData = json.loads(request.body)
     user = teamMember.objects.filter(pk = userData.get("userId")).first()
@@ -54,8 +58,10 @@ def updateUsers(request):
 @csrf_exempt
 def users(request):
     """
+    :param request: HTTP data that gets passed to the function.
     Handles all HTTP requests and deploys helper function according to which input is given.
-    Return: JsonResponse/HttpResponse
+    :returns: JsonResponse
+    :returns: HttpResponse
     """
     if request.method == "POST":
         addUser(request)
