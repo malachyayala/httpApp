@@ -9,7 +9,7 @@ If you already have some version of python installed that is at least 3.7.9, the
 Once pip installed, run 'pip3 install Django' in your terminal.
 
 <h3>Step #4:</h3>
-Next, you must install MySql. Follow this: https://pypi.org/project/mysqlclient/ guide depending on which OS you have. Personally, I have macOS and ran into some issues installing MySql. These are the commands I eventually ran to make it run:
+Next, you must install MySql. Follow this: https://pypi.org/project/mysqlclient/ guide depending on which OS you have. Personally, I have macOS and ran into some issues installing MySql. These are the commands I eventually ran to make it run: <br />
 - brew install mysql<br />
 - brew install openssl<br />
 - export PATH=${PATH}:/usr/local/mysql/bin/<br />
