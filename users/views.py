@@ -85,8 +85,8 @@ def users(request):
 
     if request.method == "PUT":
         data = json.loads(request.body)
-        if teamMember.objects.filter(pk = data.get("userId")).exists():
+        try: #teamMember.objects.filter(pk = data.get("userId")).exists():
             updateUsers(request)
-            return JsonResponse(data)
-        else:
+        except AttributeError:
             return JsonResponse({"error": "Member not found."}, status=404)
+        return JsonResponse(data)
