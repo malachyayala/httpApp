@@ -10,11 +10,11 @@ Once pip installed, run 'pip3 install Django' in your terminal.
 
 <h3>Step #4:</h3>
 Next, you must install MySql. Follow this: https://pypi.org/project/mysqlclient/ guide depending on which OS you have. Personally, I have macOS and ran into some issues installing MySql. These are the commands I eventually ran to make it run:
-- brew install mysql
-- brew install openssl
-- export PATH=${PATH}:/usr/local/mysql/bin/
-- sudo xcode-select --reset
-- pip3 install mysqlclient
+- brew install mysql  
+- brew install openssl  
+- export PATH=${PATH}:/usr/local/mysql/bin/   
+- sudo xcode-select --reset  
+- pip3 install mysqlclient  
 
 
 <h3>Step #5:</h3>
