@@ -18,7 +18,7 @@ Next, you must install MySql. Follow this: https://pypi.org/project/mysqlclient/
 
 <h3>Step #5:</h3>
 Once MySql is installed, you must create the database being used. This takes 3 commands. First, connect to MySql with 'sudo mysql.' This should take you to the MySql command-line client. If it does not work and requires a password, run 'mysql -u root -p' and enter your MySql password. However, The default should be no  password or an empty password.
-
+<br />
 Once in the MySql client, enter 'SHOW DATABASES;' to see what databases already exist. If there is no 'my_db', run 'CREATE DATABASE my_db;'. 
 
 <h2> Running API </h2>
