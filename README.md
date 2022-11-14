@@ -53,10 +53,10 @@ curl -X DELETE -H "Content-Type:application/json" http://127.0.0.1:8000/users/ -
 curl -X PUT -H "Content-Type:application/json" http://127.0.0.1:8000/users/ -d '{"userId": 1, "emailId": "hello@test.com", "role": "admin"}'
 
 <h2> Overall project notes: </h2>
-For adding a user, I decided to allow duplicate entries because with Django, a unique ID (primary key) is automatically generated which allows us to differentiate between entries. Additonally, I did not put any lmitations on the 'role' field because the example provided gives '0' as a role, but the directions says the role should either be 'admin' or  'regular'. If I were to implement this limitation, it would look something like:
-
-roleDat = data.get("role")
-if roleDat !=  "admin" or roleDat != "regular":
+For adding a user, I decided to allow duplicate entries because with Django, a unique ID (primary key) is automatically generated which allows us to differentiate between entries. Additonally, I did not put any lmitations on the 'role' field because the example provided gives '0' as a role, but the directions says the role should either be 'admin' or  'regular'. If I were to implement this limitation, it would look something like:<br />
+<br />
+roleDat = data.get("role")<br />
+if roleDat !=  "admin" or roleDat != "regular":<br />
     return HttpResponse("Role must be admin or regular")
     
 For deleting a user, I assumed the input would be a Json object with just one field which was the unique ID to identify which object to delete
