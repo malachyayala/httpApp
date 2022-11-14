@@ -35,14 +35,14 @@ NOTE: If you had a MySql password, navigate to the settings.py file in the crudA
 This should migrate Django and the newly created MySql db.
 
 <h3>Step #3:</h3>
-In order to start and run the program, run the follow command: 'python3 manage.py runserver'. The HTTP API should now be ready for testing.
-
-*Note: If MySql DB is not working, put this under 'DATABASES' in settings.py:
-	'default': {
-    	'ENGINE': 'django.db.backends.sqlite3',
-    	'NAME': BASE_DIR / 'db.sqlite3',
-	}
-
+In order to start and run the program, run the follow command: 'python3 manage.py runserver'. The HTTP API should now be ready for testing.<br />
+<br />
+*NOTE: If MySql DB is not working, put this under 'DATABASES' in settings.py:<br />
+	'default': {<br />
+    	'ENGINE': 'django.db.backends.sqlite3',<br />
+    	'NAME': BASE_DIR / 'db.sqlite3',<br />
+	}<br />
+<br />
 <h2> Testing </h2>
 In order to test the API, I have provided some commands to test functionality:
 
