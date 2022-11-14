@@ -81,7 +81,7 @@ def users(request):
             deleteUsers(request, data)
             return HttpResponse("")
         else:
-            return JsonResponse({"error": "Post not found.\n"}, status=404)
+            return JsonResponse({"error": "Member not found."}, status=404)
 
     if request.method == "PUT":
         data = json.loads(request.body)
@@ -89,4 +89,4 @@ def users(request):
             updateUsers(request)
             return JsonResponse(data)
         else:
-            return JsonResponse({"error": "Post not found.\n"}, status=404)
+            return JsonResponse({"error": "Member not found."}, status=404)
