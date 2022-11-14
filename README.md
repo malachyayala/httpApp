@@ -30,16 +30,27 @@ Once in the httpApp/ directory, run the following commands in your terminal:<br 
 - python3 manage.py makemigrations<br />
 - python3 manage.py migrate<br />
 
-Step #2:
-Once in the httpApp/ directory, run the following command in your terminal: 'python3 manage.py runserver'. The HTTP API should now be ready for testing.
+This should migrate Django and the newly created MySql db.
 
-For testing:
+<h3>Step #3:</h3>
+In order to start and run the program, run the follow command: 'python3 manage.py runserver'. The HTTP API should now be ready for testing.
+
+<h2> Testing </h2>
+In order to test the API, I have provided some commands to test functionality:
+
+<h2>Add a team member:</h2>
+curl -X POST -H "Content-Type:application/json" http://127.0.0.1:9000/users -d '{"userId": 1, "firstName": "Malachy", "lastName": "Skywalker", "phone": "+12345678900", "emailId": "inagalaxy@farfaraway.com", "role": 0}'
+
+<h2>List team members:</h2>
+curl -X GET http://127.0.0.1:8000/users/
+
+<h2>Delete a team member:</h2>
+curl -X DELETE -H "Content-Type:application/json" http://127.0.0.1:8000/users/ -d '{"userId": 1}'
+
+<h2>Update a team member:</h2>
+curl -X PUT -H "Content-Type:application/json" http://127.0.0.1:8000/users/ -d '{"userId": 1, "emailId": "hello@test.com", "role": "admin"}'
 
 
-python3 manage.py makemigrations
-python3 manage.py migrate
 
-mysql -u root -p
 
-SHOW DATABASES;
-CREATE DATABASE my_db;
+
