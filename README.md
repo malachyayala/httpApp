@@ -1,4 +1,9 @@
-Setting up enviorment: 
+<h2> Overview </h2>
+An animation represents objects moving and changing its state in a series of ticks.
+
+A simple version of our model is created with the length and width frame the animation will take place in.
+
+Several versions of our view are created by providing a model with shapes and commands.
 
 Step #1:
 Make sure you have some version of python installed that is at least 3.7.9. If you do not have this, follow this: https://realpython.com/installing-python/ guide to do so.
