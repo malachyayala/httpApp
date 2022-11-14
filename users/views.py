@@ -6,11 +6,11 @@ from users.models import teamMember
 from django.core import serializers 
  # Create your views here.
 
-"""
-Adds a user to the SQL model database and saves it.
-Return: None
-"""
 def addUser(request):
+    """
+    Adds a user to the SQL model database and saves it.
+    Return: None
+    """
     data = json.loads(request.body)
     u = teamMember(
     firstName = data.get("firstName"),
@@ -21,44 +21,42 @@ def addUser(request):
     )
     u.save()
 
-"""
-Deletes an existing user from the SQL model database.
-Return: None
-"""
-def deleteUsers(request):
-    data = json.loads(request.body)
-    teamMember.objects.filter(pk = data.get("userId")).delete()
+def deleteUsers(request, userID):
+    """
+    Deletes an existing user from the SQL model database.
+    Return: None
+    """
+    teamMember.objects.filter(pk = userID.get("userId")).delete()
 
-"""
-Updates an existing user in the current SQL model database.
-Return: None
-"""
 def updateUsers(request):
-    data = json.loads(request.body)
-    new = teamMember.objects.filter(pk = data.get("userId")).first()
-    if "firstName" in data:
-        new.firstName = data.get("firstName")
+    '''
+    Updates an existing user in the current SQL model database.
+    Return: None
+    '''
+    userData = json.loads(request.body)
+    user = teamMember.objects.filter(pk = userData.get("userId")).first()
+    if "firstName" in userData:
+        user.firstName = userData.get("firstName")
 
-    if "lastName" in data:
-        new.lastName = data.get("lastName")
+    if "lastName" in userData:
+        user.lastName = userData.get("lastName")
 
-    if "phone" in data:
-        new.phone = data.get("phone")
+    if "phone" in userData:
+        user.phone = userData.get("phone")
         
-    if "emailId" in data:
-        new.emailId = data.get("emailId")
+    if "emailId" in userData:
+        user.emailId = userData.get("emailId")
 
-    if "role" in data:
-        new.role = data.get("role")
-        
-    new.save()
+    if "role" in userData:
+        user.role = userData.get("role")
+    user.save()
 
-"""
-Handles all HTTP requests and deploys helper function according to which input is given.
-Return: JsonResponse/HttpResponse
-"""
 @csrf_exempt
 def users(request):
+    """
+    Handles all HTTP requests and deploys helper function according to which input is given.
+    Return: JsonResponse/HttpResponse
+    """
     if request.method == "POST":
         addUser(request)
         sd = serializers.serialize("json", [teamMember.objects.last()])
@@ -66,16 +64,23 @@ def users(request):
         return JsonResponse(sd, safe = False)
 
     if request.method == "GET":
-        members = teamMember.objects.all()
-        serializedData = serializers.serialize("json", members)
-        serializedData = json.loads(serializedData)
-        return JsonResponse(serializedData, safe = False)
+        teamMembers = teamMember.objects.all()
+        serializedTeam = serializers.serialize("json", teamMembers)
+        serializedTeam = json.loads(serializedTeam)
+        return JsonResponse(serializedTeam, safe = False)
 
     if request.method == "DELETE":
-        deleteUsers(request)
-        return HttpResponse("")
+        data = json.loads(request.body)
+        if teamMember.objects.filter(pk = data.get("userId")).exists():
+            deleteUsers(request, data)
+            return HttpResponse("")
+        else:
+            return JsonResponse({"error": "Post not found.\n"}, status=404)
 
     if request.method == "PUT":
         data = json.loads(request.body)
-        updateUsers(request)
-        return JsonResponse(data)
+        if teamMember.objects.filter(pk = data.get("userId")).exists():
+            updateUsers(request)
+            return JsonResponse(data)
+        else:
+            return JsonResponse({"error": "Post not found.\n"}, status=404)
