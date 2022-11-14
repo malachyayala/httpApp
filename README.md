@@ -1,4 +1,4 @@
-Setting up enviorment:
+Setting up enviorment: \n
 
 Step #1:
 Make sure you have some version of python installed that is at least 3.7.9. If you do not have this, follow this: https://realpython.com/installing-python/ guide to do so.
