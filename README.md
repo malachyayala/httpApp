@@ -49,8 +49,3 @@ curl -X DELETE -H "Content-Type:application/json" http://127.0.0.1:8000/users/ -
 
 <h4>Update a team member:</h4>
 curl -X PUT -H "Content-Type:application/json" http://127.0.0.1:8000/users/ -d '{"userId": 1, "emailId": "hello@test.com", "role": "admin"}'
-
-
-
-
-
