@@ -38,16 +38,16 @@ In order to start and run the program, run the follow command: 'python3 manage.p
 <h2> Testing </h2>
 In order to test the API, I have provided some commands to test functionality:
 
-<h2>Add a team member:</h2>
+<h4>Add a team member:</4>
 curl -X POST -H "Content-Type:application/json" http://127.0.0.1:9000/users -d '{"userId": 1, "firstName": "Malachy", "lastName": "Skywalker", "phone": "+12345678900", "emailId": "inagalaxy@farfaraway.com", "role": 0}'
 
-<h2>List team members:</h2>
+<h4>List team members:</h4>
 curl -X GET http://127.0.0.1:8000/users/
 
-<h2>Delete a team member:</h2>
+<4>Delete a team member:</h4>
 curl -X DELETE -H "Content-Type:application/json" http://127.0.0.1:8000/users/ -d '{"userId": 1}'
 
-<h2>Update a team member:</h2>
+<h4>Update a team member:</h4>
 curl -X PUT -H "Content-Type:application/json" http://127.0.0.1:8000/users/ -d '{"userId": 1, "emailId": "hello@test.com", "role": "admin"}'
 
 
