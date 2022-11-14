@@ -57,8 +57,8 @@ For adding a user, I decided to allow duplicate entries because with Django, a u
 <br />
 roleDat = data.get("role")<br />
 if roleDat !=  "admin" or roleDat != "regular":<br />
-    return HttpResponse("Role must be admin or regular")
-    
-For deleting a user, I assumed the input would be a Json object with just one field which was the unique ID to identify which object to delete
-
+    return HttpResponse("Role must be admin or regular")<br />
+<br />
+For deleting a user, I assumed the input would be a Json object with just one field which was the unique ID to identify which object to delete.<br />
+<br />
 Overall the hardest part of the project was implementing a way to update a team member. For my update implementation, I assumed we at least were given the primary as a means to identify which item is being edited. However, that is the only required field. All others are optional.
