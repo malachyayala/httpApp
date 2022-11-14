@@ -29,7 +29,7 @@ After installing Django and MySql, navigate to wherever you stored the httpApp/ 
 Once in the httpApp/ directory, run the following commands in your terminal:<br />
 - python3 manage.py makemigrations<br />
 - python3 manage.py migrate<br />
-
+<br />
 NOTE: If you had a MySql password, navigate to the settings.py file in the crudApp/ directory. Under 'DATABASES', set the password to your current password.<br />
 
 This should migrate Django and the newly created MySql db.
