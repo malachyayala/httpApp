@@ -16,11 +16,21 @@ Next, you must install MySql. Follow this: https://pypi.org/project/mysqlclient/
 - sudo xcode-select --reset<br />
 - pip3 install mysqlclient<br />
 
-
 <h3>Step #5:</h3>
-After installing Django, navigate to wherever you stored the httpApp/ directory.
+Once MySql is installed, you must create the database being used. This takes 3 commands. First, connect to MySql with 'sudo mysql.' This should take you to the MySql command-line client. If it does not work and requires a password, run 'mysql -u root -p' and enter your MySql password. However, The default should be no  password or an empty password.
 
-Step #5:
+Once in the MySql client, enter 'SHOW DATABASES;' to see what databases already exist. If there is no 'my_db', run 'CREATE DATABASE my_db;'. 
+
+<h2> Running API </h2>
+<h3>Step #1:</h3>
+After installing Django and MySql, navigate to wherever you stored the httpApp/ directory.
+
+<h3>Step #2:</h3>
+Once in the httpApp/ directory, run the following commands in your terminal:<br />
+- python3 manage.py makemigrations<br />
+- python3 manage.py migrate<br />
+
+Step #2:
 Once in the httpApp/ directory, run the following command in your terminal: 'python3 manage.py runserver'. The HTTP API should now be ready for testing.
 
 For testing:
